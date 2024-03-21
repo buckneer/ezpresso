@@ -8,7 +8,10 @@ function generatePackage(name, description, version, main, author, license) {
         description: description,
         main: main,
         scripts: {
-           test: "echo \"Error: no test specified\" && exit 1"
+            "start": "node dist/app.js",
+            "postinstall": "tsc",
+            "build": "tsc",
+            "dev": "nodemon --config nodemon.json src/app.ts"
         },
         author: author,
         license: license,
