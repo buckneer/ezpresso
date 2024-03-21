@@ -1,0 +1,18 @@
+{
+  "name": "ezpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "ezpress": "bin/ezpress.js"
+  },
+  "author": "Miftari Simel",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "handlebars": "^4.7.8",
+    "minimist": "^1.2.8",
+    "prompt-sync": "^4.2.0"
+  }
+}
