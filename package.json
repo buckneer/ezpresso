@@ -1,11 +1,11 @@
 {
-  "name": "ezpress",
+  "name": "ezpresso",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "ezpress": "bin/ezpress.js"
+    "ezpresso": "bin/ezpresso.js"
   },
   "author": "Miftari Simel",
   "license": "ISC",

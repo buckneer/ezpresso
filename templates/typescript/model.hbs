@@ -1,0 +1,15 @@
+import { Document, Schema, model } from 'mongoose'
+
+export interface {{ capitalize name }}Document extends Document {
+    
+}
+
+const {{ capitalize name }}Schema = new Schema({
+    
+});
+
+const {{ capitalize name }} = model<{{ capitalize name }}Document>('{{ capitalize name }}', {{ capitalize name }}Schema);
+
+export default {{ capitalize name }};
+
+

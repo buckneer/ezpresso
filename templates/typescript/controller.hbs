@@ -1,0 +1,53 @@
+import { Request, Response } from "express";
+
+export async function handleAdd{{ capitalize name }}(req: Request, res: Response) {
+    try {
+        let data = {
+            ...req.body
+        }
+
+        // TODO implement function
+
+        return res.status(200);
+    } catch (e: any) {
+        return res.status(e.status).send(e); 
+    }
+}
+
+export async function handleGet{{ capitalize name }}s(req: Request, res: Response) {
+    try {
+        // TODO implement function
+        return res.status(200);
+    } catch (e: any) {
+        return res.status(e.status).send(e); 
+    }
+}
+
+export async function handleGet{{ capitalize name }}(req: Request, res: Response) {
+    try {
+        let { id } = req.params;
+
+        // TODO implement function
+
+        return res.status(200);
+    } catch (e: any) {
+        return res.status(e.status).send(e); 
+    }
+}
+
+export async function handleUpdate{{ capitalize name }}(req: Request, res: Response) {
+    try {
+        let { id } = req.params;
+
+        let data = {
+            ...req.body
+        }
+
+        // TODO implement function
+
+        return res.status(200);
+
+    } catch (e: any) {
+        return res.status(e.status).send(e); 
+    }
+}
