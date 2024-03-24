@@ -172,22 +172,41 @@ if(script === "create") {
 
     const projectDir = path.join(process.cwd(), 'src');
     
-
-    
-    if(controller) {
-        generateFile(projectDir, scriptName, 'controller');
-    } else if (service) {
-        generateFile(projectDir, scriptName, 'service');
-    } else if (model) {
-        generateFile(projectDir, scriptName, 'model');
-    } else if (all) {
+    if(all) {
         generateFile(projectDir, scriptName, 'model');
         generateFile(projectDir, scriptName, 'service');
         generateFile(projectDir, scriptName, 'controller');
     } else {
-        log(err('Unknown flags'));
-        process.exit(1);
+        if(controller) {
+            generateFile(projectDir, scriptName, 'controller');
+        }
+        
+        if(service) {
+            generateFile(projectDir, scriptName, 'service');
+        }
+    
+        if(model) {
+            generateFile(projectDir, scriptName, 'model');
+        }
     }
+
+    
+
+
+    // if(controller) {
+    //     generateFile(projectDir, scriptName, 'controller');
+    // } else if (service) {
+    //     generateFile(projectDir, scriptName, 'service');
+    // } else if (model) {
+    //     generateFile(projectDir, scriptName, 'model');
+    // } else if (all) {
+    //     generateFile(projectDir, scriptName, 'model');
+    //     generateFile(projectDir, scriptName, 'service');
+    //     generateFile(projectDir, scriptName, 'controller');
+    // } else {
+    //     log(err('Unknown flags'));
+    //     process.exit(1);
+    // }
 
 
 } else {
