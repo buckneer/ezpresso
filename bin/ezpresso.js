@@ -38,14 +38,14 @@ const scriptTypes = ['service', 's', 'controller', 'c', 'model', 'm'];
 const script = argv._[0];
 
 if(script === "create") {
-    
+
     console.log('Creating new project');
     const projectName =  argv._[1];
     const workingDir = path.join(process.cwd(), projectName);
-    
+
     const dirs = ['src', 'src/controllers', 'src/db', 'src/logger', 'src/middleware', 'src/models', 'src/services', 'src/utils'];
     const sourceDir = path.join(templates, 'typescript', 'express');
-    
+
     const files = [
         {
             from: '.env',
@@ -85,25 +85,25 @@ if(script === "create") {
         }
     ];
 
-   
+
 
     try {
 
         // * GENERATE PACKAGE JSON
 
         const jsonData = getInputs(projectName);
-        
+
 
         const generatedPackage = parseTemplate(path.join(sourceDir, 'package.hbs'), jsonData);
 
-        
+
 
         // * CREATE PROJECT DIR
 
         if(fs.existsSync(workingDir)) {
             log(err("already exists"));
 
-            // TODO ask if you want to overwrite 
+            // TODO ask if you want to overwrite
         } else {
             fs.mkdirSync(workingDir);
         }
@@ -111,7 +111,7 @@ if(script === "create") {
         log(done('CREATED project dir'));
 
         // * CREATE DIRS
-        
+
         dirs.forEach(dir => {
             fs.mkdirSync(path.join(workingDir, dir));
             log(done(`CREATED `), dir);
@@ -140,10 +140,10 @@ if(script === "create") {
 
         log(info("RUNNING "), 'npm install');
 
-        
+
         process.chdir(path.join(workingDir));
         const npmInstall = spawn('npm', ['install'], { stdio: 'inherit' });
-        
+
         npmInstall.on('error', (error) => {
             log(err(`Error: ${error.message}`));
         });
@@ -155,11 +155,11 @@ if(script === "create") {
                 console.error(`npm install failed with code ${code}`);
             }
         });
-    
+
     } catch(e) {
         log(err(e));
     }
-    
+
 
 } else if (script === "generate" || script === 'g') {
 
@@ -168,11 +168,13 @@ if(script === "create") {
     const controller = argv.c || argv.controller;
     const service = argv.s || argv.service;
     const model = argv.m || argv.model;
+    const router = argv.r || argv.router;
     const all = argv.a || argv.all;
 
     const projectDir = path.join(process.cwd(), 'src');
-    
+
     if(all) {
+        generateFile(projectDir, scriptName, 'router');
         generateFile(projectDir, scriptName, 'model');
         generateFile(projectDir, scriptName, 'service');
         generateFile(projectDir, scriptName, 'controller');
@@ -180,34 +182,19 @@ if(script === "create") {
         if(controller) {
             generateFile(projectDir, scriptName, 'controller');
         }
-        
+
         if(service) {
             generateFile(projectDir, scriptName, 'service');
         }
-    
+
         if(model) {
             generateFile(projectDir, scriptName, 'model');
         }
+
+        if (router) {
+            generateFile(projectDir, scriptName, 'router');
+        }
     }
-
-    
-
-
-    // if(controller) {
-    //     generateFile(projectDir, scriptName, 'controller');
-    // } else if (service) {
-    //     generateFile(projectDir, scriptName, 'service');
-    // } else if (model) {
-    //     generateFile(projectDir, scriptName, 'model');
-    // } else if (all) {
-    //     generateFile(projectDir, scriptName, 'model');
-    //     generateFile(projectDir, scriptName, 'service');
-    //     generateFile(projectDir, scriptName, 'controller');
-    // } else {
-    //     log(err('Unknown flags'));
-    //     process.exit(1);
-    // }
-
 
 } else {
     // Unknown script, display help;
@@ -221,7 +208,7 @@ function parseTemplate(templateLoc, data) {
 }
 
 function generateDir(dirName) {
-    
+
     if(fs.existsSync(dirName)) return
 
     fs.mkdirSync(dirName);
