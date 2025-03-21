@@ -1,3 +1,53 @@
+# Express Project CLI Generator
+
+## Introduction
+
+**ezpresso** is an npm package designed to streamline your workflow, making development faster and more efficient. This guide will walk you through installation, commands, project structure, and troubleshooting common issues.
+
+
+
+## Features
+
+* **Project Creation:** Quickly generate a new Express project with a pre-defined folder structure and essential configuration files.
+* **File Generation:** Create individual components (controller, service, model, or router) based on customizable Handlebars templates.
+* **Interactive Prompts:** Answer prompts to provide package details and model fields when generating files.
+* **TypeScript Support:** The generated project uses TypeScript for type safety and maintainability.
+* **Colorful Console Output:** Uses chalk for improved readability during CLI operations.
+
+
+## Prerequisites
+- Node.js (v12 or above)
+- npm (Node Package Manager)
+- Basic knowledge of TypeScript and Express
+
+## Installation
+
+### NPM
+
+To install **ezpresso**, ensure you have Node.js installed on your system. Then, run the following command:
+``` bash
+npm install -g ezpresso
+```
+
+### Manual Build
+1. Clone Repository:
+``` bash
+git clone https://github.com/yourusername/express-cli-generator.git
+cd express-cli-generator
+```
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Build the project:
+```bash
+npm run build
+```
+
+
+This will install **ezpresso** globally, allowing you to use it from any project.
+
 
 ## Usage
 The CLI tool supports two main commands: create and generate (alias g).
