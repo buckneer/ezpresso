@@ -3,20 +3,20 @@ import {{Name}}, { {{Name}}Document } from "../models/{{name}}.model";
 export const create{{Name}} = async (data: any): Promise<{{Name}}Document> => {
     const {{name}} = new {{Name}}(data);
     return await {{name}}.save();
-    };
+};
 
-    export const get{{Name}} = async (id: string): Promise<{{Name}}Document | null> => {
-        return await {{Name}}.findById(id);
-        };
+export const get{{Name}} = async (id: string): Promise<{{Name}}Document | null> => {
+    return await {{Name}}.findById(id);
+};
 
-        export const get{{Name}}s = async (): Promise<{{Name}}Document[]> => {
-        return await {{Name}}.find({});
-        };
+export const get{{Name}}s = async (): Promise<{{Name}}Document[]> => {
+    return await {{Name}}.find({});
+};
 
-        export const update{{Name}} = async (id: string, data: any): Promise<{{Name}}Document | null> => {
-            return await {{Name}}.findByIdAndUpdate(id, data, { new: true });
-            };
+export const update{{Name}} = async (id: string, data: any): Promise<{{Name}}Document | null> => {
+    return await {{Name}}.findByIdAndUpdate(id, data, { new: true });
+};
 
-            export const delete{{Name}} = async (id: string): Promise<{{Name}}Document | null> => {
-                return await {{Name}}.findByIdAndDelete(id);
-                };
+export const delete{{Name}} = async (id: string): Promise<{{Name}}Document | null> => {
+    return await {{Name}}.findByIdAndDelete(id);
+};

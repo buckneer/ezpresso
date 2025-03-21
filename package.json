@@ -1,11 +1,16 @@
 {
   "name": "ezpresso",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/ezpresso.js",
   "type": "module",
   "bin": {
-    "ezpresso": "bin/ezpresso.js"
+    "ezpresso": "dist/ezpresso.js"
+  },
+  "scripts": {
+    "dev": "node --loader ts-node/esm bin/ezpresso.ts",
+    "build": "tsc && npm link",
+    "start": "npm run build && node dist/ezpresso.js"
   },
   "author": "Miftari Simel",
   "license": "ISC",
@@ -14,5 +19,13 @@
     "handlebars": "^4.7.8",
     "minimist": "^1.2.8",
     "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/chalk": "^x.x.x",
+    "@types/handlebars": "^x.x.x",
+    "@types/minimist": "^x.x.x",
+    "@types/prompt-sync": "^4.2.3",
+    "ts-node": "^10.x",
+    "typescript": "^4.x"
   }
 }

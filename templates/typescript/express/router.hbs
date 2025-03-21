@@ -1,0 +1,18 @@
+import express from "express";
+import {
+handleAdd{{Name}},
+handleGet{{Name}},
+handleGet{{Name}}s,
+handleUpdate{{Name}},
+handleDelete{{Name}}
+} from "../controllers/{{name}}.controller";
+
+const router = express.Router();
+
+router.post("/", handleAdd{{Name}});
+router.get("/:id", handleGet{{Name}});
+router.get("/", handleGet{{Name}}s);
+router.put("/:id", handleUpdate{{Name}});
+router.delete("/:id", handleDelete{{Name}});
+
+export default router;

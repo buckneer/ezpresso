@@ -1,0 +1,58 @@
+import { Request, Response } from "express";
+import {
+create{{Name}},
+get{{Name}},
+get{{Name}}s,
+update{{Name}},
+delete{{Name}}
+} from "../services/{{name}}.service";
+
+export async function handleAdd{{Name}}(req: Request, res: Response) {
+    try {
+        const data = req.body;
+        const result = await create{{Name}}(data);
+        return res.status(201).json(result);
+    } catch (e: any) {
+        return res.status(e.status || 500).send(e.message);
+    }
+}
+
+export async function handleGet{{Name}}(req: Request, res: Response) {
+    try {
+        const { id } = req.params;
+        const result = await get{{Name}}(id);
+        return res.json(result);
+    } catch (e: any) {
+        return res.status(e.status || 500).send(e.message);
+    }
+}
+
+export async function handleGet{{Name}}s(req: Request, res: Response) {
+    try {
+        const result = await get{{Name}}s();
+        return res.json(result);
+    } catch (e: any) {
+        return res.status(e.status || 500).send(e.message);
+    }
+}
+
+export async function handleUpdate{{Name}}(req: Request, res: Response) {
+    try {
+        const { id } = req.params;
+        const data = req.body;
+        const result = await update{{Name}}(id, data);
+        return res.json(result);
+    } catch (e: any) {
+        return res.status(e.status || 500).send(e.message);
+    }
+}
+
+export async function handleDelete{{Name}}(req: Request, res: Response) {
+    try {
+        const { id } = req.params;
+        const result = await delete{{Name}}(id);
+        return res.json(result);
+    } catch (e: any) {
+        return res.status(e.status || 500).send(e.message);
+    }
+}

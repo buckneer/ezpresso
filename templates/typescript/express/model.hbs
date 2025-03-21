@@ -1,0 +1,17 @@
+import { Document, Schema, model, Types } from "mongoose";
+
+export interface {{Name}}Document extends Document {
+{{#each fields}}
+    {{this.name}}: {{this.mongooseType}};
+{{/each}}
+}
+
+const {{name}}Schema = new Schema({
+{{#each fields}}
+    {{this.name}}: { type: {{this.mongooseType}}, required: {{this.required}} },
+{{/each}}
+});
+
+const {{Name}} = model<{{Name}}Document>("{{Name}}", {{name}}Schema);
+
+export default {{Name}};
