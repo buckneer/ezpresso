@@ -3,6 +3,10 @@
   "version": "1.1.4",
   "description": "",
   "main": "dist/ezpresso.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buckneer/ezpresso/"
+  },
   "type": "module",
   "keywords": [
     "cli",
